@@ -33,15 +33,15 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.tableCells = [[NSMutableArray alloc] init];
-    
-    NSString *cell1 = @"I am in section 0";
-    NSString *cell2 = @"another section";
-    NSString *cell3 = @"cell 6";
-    
-    [self.tableCells addObject:cell1];
-    [self.tableCells addObject:cell2];
-    [self.tableCells addObject:cell3];
+//    self.tableCells = [[NSMutableArray alloc] init];
+//    
+//    NSString *cell1 = @"I am in section 0";
+//    NSString *cell2 = @"another section";
+//    NSString *cell3 = @"cell 6";
+//    
+//    [self.tableCells addObject:cell1];
+//    [self.tableCells addObject:cell2];
+//    [self.tableCells addObject:cell3];
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,7 +56,7 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 2;
+    return 3;
         
 }
 
@@ -84,18 +84,24 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = [self.tableCells objectAtIndex:indexPath.row];
+    
+    //to display the row number in a section, use
+    //cell.textLabel.text = [NSString stringWithFormat: @"%i", indexPath.row];
+    //both indexPath.section and indexPath.row can be referenced as part of this controller
     
     if (indexPath.section == 0)
     {
+        cell.textLabel.text = @"I am in section 0";
         cell.backgroundColor = [UIColor redColor];
     }
     else if (indexPath.section == 1)
     {
+        cell.textLabel.text = @"another section";
         cell.backgroundColor = [UIColor blueColor];
     }
-    else if (indexPath.section == 2)
+    else
     {
+        cell.textLabel.text = [NSString stringWithFormat:@"cell %i", indexPath.row];
         cell.backgroundColor = [UIColor yellowColor];
     }
     return cell;
