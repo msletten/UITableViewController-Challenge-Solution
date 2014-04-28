@@ -1,5 +1,5 @@
 //
-//  MSViewController.h
+//  MSTableViewController.h
 //  MSUITableViewConroller Challenge Solution
 //
 //  Created by Mat Sletten on 4/28/14.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MSViewController : UIViewController
+@interface MSTableViewController : UITableViewController
+
+@property (strong, nonatomic) NSMutableArray *tableCells;
 
 @end
